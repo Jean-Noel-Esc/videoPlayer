@@ -25,7 +25,7 @@ body {
     width: 100%;
     flex-wrap: wrap;
     background: black;
-    transform: translateY(100%);
+    transform: translateY(90%);
     transition: all 0.2s;
 }
 .container-video:hover .controls{
