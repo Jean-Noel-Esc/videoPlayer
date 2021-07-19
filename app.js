@@ -44,7 +44,6 @@ muteBtn.addEventListener('click', () =>{
     if(video.muted){
         video.muted = false;
         muteBtn.innerText = "Mute";
-
     }
     else{
         video.muted = true;
@@ -52,3 +51,32 @@ muteBtn.addEventListener('click', () =>{
     }
 })
 
+// click sur la barre pour navigation dans la video
+
+let rect = barreOrange.getBoundingClientRect();
+let largeur = rect.width;
+
+barreOrange.addEventListener('click', (e) =>{
+    let x = e.clientX - rect.left;
+
+    let widthPercent = ((x*100/largeur));
+
+    let durationVideo = video.duration;
+    // position en secobnde par rapport au pourcentage
+    video.currentTime = durationVideo * (widthPercent / 100);
+})
+
+// resize
+window.addEventListener('resize', () => {
+    let rect = barreOrange.getBoundingClientRect();
+    let largeur = rect.width;
+})
+
+//passage en plein ecran
+
+video.addEventListener('dblclick', () => {
+    video.requestFullscreen();
+})
+fullScreen.addEventListener('click' , () => {
+    video.requestFullscreen();
+})
